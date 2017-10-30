@@ -1,0 +1,11 @@
+{
+  "name": "opuscule-site",
+  "version": "1.0.0",
+  "description": "brute force musical compositions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jesse MacFadyen",
+  "license": "Apache-2.0"
+}

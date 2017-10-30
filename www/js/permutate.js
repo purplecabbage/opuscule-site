@@ -1,5 +1,5 @@
 
-var permutator = {
+var Permutate = {
     next:function next(arr,compareFunction) {
         var retArr = arr.slice();
         var safeCompare = compareFunction || function(a,b) {
@@ -13,7 +13,8 @@ var permutator = {
         for(var k = arr.length - 2; k > -1; k--) {
             if(arr[k] < arr[k+1]){
                 for(var l = arr.length - 1; l > k; l--) {
-                    if( safeCompare(arr[k], arr[l]) < 0 ) {
+                    var compareResult = safeCompare(arr[k], arr[l]);
+                    if( compareResult < 0 ) {
                         retArr[k] = arr[l];
                         retArr[l] = arr[k];
                         var sub = retArr.slice(k+1);
@@ -21,7 +22,13 @@ var permutator = {
                         retArr = retArr.slice(0,k+1).concat(sub);
                         return retArr;
                     }
+                    else if(compareResult == 0) {
+console.log("matched ... should skip this value");
+                    }
                 }
+            }
+            else {
+                console.log("it happened with : " + arr[k] + " and " + arr[k+1]);
             }
         }
         return null;
